@@ -11,6 +11,7 @@ Currently, it only works with the following customizable render pipeline:
 # Features
 
   - Load color filter profile in runtime pressing **F1** on keyboard.
+  - Saving the current filter via [_PlayerPrefs_][playerprefs].
 
 ### Todos
 
@@ -34,5 +35,6 @@ MIT
 [//]: # (References)
 
 [color-matrix]: <https://web.archive.org/web/20081014161121/http:/www.colorjack.com/labs/colormatrix/>
+[playerprefs]: <https://docs.unity3d.com/ScriptReference/PlayerPrefs.html>
 [inputsystem]: <https://docs.unity3d.com/Manual/com.unity.inputsystem.html>
 [addressables]: <https://docs.unity3d.com/Manual/com.unity.addressables.html>
