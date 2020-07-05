@@ -1,0 +1,14 @@
+{
+    "name": "com.sohne.colorblindness",
+    "displayName": "colorblindness",
+    "version": "0.0.2",
+    "unity": "2018.4",
+    "license": "MIT",
+    "description": "Post-processing effects manager for Unity3D (URP & HDRP) in order to simulate different color palettes for color blind.",
+    "keywords": [
+        "colorblindness",
+        "colorblind",
+        "color filter"
+    ],
+    "dependencies": {}
+}
