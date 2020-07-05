@@ -1,8 +1,9 @@
 
-# *SOHNE* | Color blindness
+
+# SOHNE | Color blindness
 [![Unity Version](https://img.shields.io/badge/Unity-2018.4%20LTS+-green.svg?logo=unity&style=for-the-badge&colorA=000000)](https://store.unity.com/download?ref=personal)
 
-[![Release](https://badgen.net/github/release/SOHNE/Unity-Colorblind)][releases]  [![TODOs](https://badgen.net/https/api.tickgit.com/badgen/github.com/SOHNE/Unity-Colorblind)](https://www.tickgit.com/browse?repo=github.com/SOHNE/Unity-Colorblind) ![License](https://badgen.net/github/license/SOHNE/Unity-Colorblind) ![Contributors](https://badgen.net/github/contributors/SOHNE/Unity-Colorblind)
+[![Release](https://badgen.net/github/release/SOHNE/Colorblindness)][releases]  [![TODOs](https://badgen.net/https/api.tickgit.com/badgen/github.com/SOHNE/Colorblindness)](https://www.tickgit.com/browse?repo=github.com/SOHNE/Colorblindness) ![License](https://badgen.net/github/license/SOHNE/Colorblindness) ![Contributors](https://badgen.net/github/contributors/SOHNE/Colorblindness)
 
 Using the [Channel Mixer][channel-mixer] component, includes eight color blindness profiles, based on this [Color Blindness Simulation][color-matrix].
 
@@ -49,6 +50,8 @@ Currently, it only works with the following [Scriptable Render Pipeline][render-
 	-   Add `"com.sohne.colorblindness": "https://github.com/SOHNE/Unity-Colorblind#upm"` to your project's package manifest file in dependencies section.
 	-   Or, `Package Manager > Add package from git URL...` and paste this URL: `https://github.com/SOHNE/Unity-Colorblind#upm`
 
+[instructions taken from [GameToolkit-Localization](https://github.com/ibrahimpenekli/GameToolkit-Localization)]
+
 ---
 
 ### Implementation recommendations
@@ -68,6 +71,7 @@ The above copyright notice and this permission notice shall be included in all c
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 -----
+![readme version](https://img.shields.io/badge/%2F~.-lightgrey.svg?style=flat-square&colorA=808080&colorB=808080)![readme version](https://img.shields.io/badge/09%2F12%2F18--lightgrey.svg?style=flat-square&colorA=000000&colorB=808080)
 **Live long and prosper \V/,**
 
 [//]: # (External links)
@@ -77,7 +81,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 [render-pipeline]: <https://docs.unity3d.com/Manual/ScriptableRenderPipeline.html>
 [playerprefs]: <https://docs.unity3d.com/ScriptReference/PlayerPrefs.html>
 [post-processing]: <https://docs.unity3d.com/2018.3/Documentation/Manual/PostProcessing-Stack.html>
-[releases]: <https://github.com/SOHNE/Unity-Colorblind/releases>
+[releases]: <https://github.com/SOHNE/Colorblindness/releases>
 [upm]: <https://docs.unity3d.com/Manual/Packages.html>
 [inputsystem]: <https://docs.unity3d.com/Manual/com.unity.inputsystem.html>
 [addressables]: <https://docs.unity3d.com/Manual/com.unity.addressables.html>
