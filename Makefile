@@ -1,2 +1,2 @@
 deploy:
-	git subtree push --prefix Assets/Plugins/Colorblind origin upm
+	git subtree push --prefix Assets/Plugins/Colorblindness origin upm
