@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 
-namespace SOHNE.Accessibility.Colorblind
+namespace SOHNE.Accessibility.Colorblindness
 {
     public enum ColorblindTypes
     {
@@ -19,8 +19,10 @@ namespace SOHNE.Accessibility.Colorblind
         Achromatomaly,
     }
 
-    public class Colorblind : MonoBehaviour
+    public class Colorblindness : MonoBehaviour
     {
+        public KeyCode changeKey = KeyCode.F1;
+
         Volume[] volumes;
         VolumeComponent lastFilter;
 
@@ -43,7 +45,7 @@ namespace SOHNE.Accessibility.Colorblind
         private void OnEnable() => SceneManager.sceneLoaded += OnSceneLoaded;
         #endregion
 
-        public static Colorblind Instance { get; private set; }
+        public static Colorblindness Instance { get; private set; }
 
         void Awake()
         {
@@ -58,7 +60,7 @@ namespace SOHNE.Accessibility.Colorblind
                 return;
             }
 
-            maxType = (int)System.Enum.GetValues(typeof(ColorblindTypes)).Cast<ColorblindTypes>().Last();
+            maxType = (int) System.Enum.GetValues(typeof(ColorblindTypes)).Cast<ColorblindTypes>().Last();
         }
 
         void OnSceneLoaded(Scene scene, LoadSceneMode mode)
@@ -83,7 +85,7 @@ namespace SOHNE.Accessibility.Colorblind
 
         void Update()
         {
-            if (Input.GetKeyDown(KeyCode.F1)) InitChange();
+            if (Input.GetKeyDown(changeKey)) InitChange();
         }
 
         public void Change(int filterIndex = -1)
@@ -96,13 +98,15 @@ namespace SOHNE.Accessibility.Colorblind
         void InitChange()
         {
             if (volumes == null) return;
-            Debug.Log($"Modo daltônico [<b>{currentType}</b>/{maxType}]\n<b>{(ColorblindTypes)currentType}</b>");
-
 
             StartCoroutine(ApplyFilter());
 
             PlayerPrefs.SetInt("Accessibility.ColorblindType", currentType);
             currentType++;
+
+#if UNITY_EDITOR
+            Debug.Log($"Color changed to <b>{(ColorblindTypes)currentType} {currentType}</b>/{maxType}");
+#endif
         }
 
         IEnumerator ApplyFilter()
@@ -110,7 +114,7 @@ namespace SOHNE.Accessibility.Colorblind
             ResourceRequest loadRequest = Resources.LoadAsync<VolumeProfile>($"Colorblind/{(ColorblindTypes)currentType}");
 
             do yield return null; while (!loadRequest.isDone);
-            
+
             var filter = loadRequest.asset as VolumeProfile;
 
             if (filter == null)

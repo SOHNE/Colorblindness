@@ -1,0 +1,23 @@
+{
+    "name": "Colorblind",
+    "references": [
+        "GUID:3eae0364be2026648bf74846acb8a731",
+        "GUID:df380645f10b7bc4b97d4f5eb6303d95",
+        "GUID:46a67ded66a63de48b9329c593fc08de"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [
+        {
+            "name": "com.unity.render-pipelines.universal",
+            "expression": "1.0.0",
+            "define": "RENDERPIPELINE"
+        }
+    ],
+    "noEngineReferences": false
+}
