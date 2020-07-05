@@ -47,8 +47,8 @@ Currently, it only works with the following [Scriptable Render Pipeline][render-
  - *Colorblindness **.unitypackage***
 	 - Import the customized package found in the [releases][releases].
 - [Unity’s Package Manager][upm]
-	-   Add `"com.sohne.colorblindness": "https://github.com/SOHNE/Unity-Colorblind#upm"` to your project's package manifest file in dependencies section.
-	-   Or, `Package Manager > Add package from git URL...` and paste this URL: `https://github.com/SOHNE/Unity-Colorblind#upm`
+	-   Add `"com.sohne.colorblindness": "https://github.com/SOHNE/Colorblindness.git#upm"` to your project's package manifest file in dependencies section.
+	-   Or, `Package Manager > Add package from git URL...` and paste this URL: `https://github.com/SOHNE/Colorblindness.git#upm`
 
 [instructions taken from [GameToolkit-Localization](https://github.com/ibrahimpenekli/GameToolkit-Localization)]
 
@@ -72,7 +72,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 -----
 ![readme version](https://img.shields.io/badge/%2F~.-lightgrey.svg?style=flat-square&colorA=808080&colorB=808080)![readme version](https://img.shields.io/badge/09%2F12%2F18--lightgrey.svg?style=flat-square&colorA=000000&colorB=808080)
+
 **Live long and prosper \V/,**
+
 
 [//]: # (External links)
 
