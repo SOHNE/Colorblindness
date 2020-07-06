@@ -1,7 +1,7 @@
 {
     "name": "com.sohne.colorblindness",
     "displayName": "Colorblindness",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "unity": "2018.4",
     "license": "MIT",
     "description": "Post-processing effects manager for Unity3D (URP & HDRP) in order to simulate different color palettes for color blind.",
@@ -10,5 +10,24 @@
         "colorblind",
         "color filter"
     ],
-    "dependencies": {}
+    "dependencies": {
+        "com.unity.render-pipelines.core": "4.10.0-preview"
+    },
+    "author": {
+        "name": "SOHNE",
+        "email": "leandroperes@protonmail.com",
+        "url": "https://github.com/SOHNE"
+    },
+    "samples": [
+        {
+            "displayName": "Prefabs",
+            "description": "Simple prefabs",
+            "path": "Samples~/Prefabs"
+        },
+        {
+            "displayName": "UI",
+            "description": "Simple example using primarily UI elements",
+            "path": "Samples~/UI"
+        }
+    ]
 }
