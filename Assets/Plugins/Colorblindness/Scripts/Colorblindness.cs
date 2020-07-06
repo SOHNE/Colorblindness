@@ -23,6 +23,8 @@ namespace SOHNE.Accessibility.Colorblindness
     {
         public KeyCode changeKey = KeyCode.F1;
 
+        // TODO: Clear saved settings
+
         Volume[] volumes;
         VolumeComponent lastFilter;
 
@@ -46,6 +48,14 @@ namespace SOHNE.Accessibility.Colorblindness
         #endregion
 
         public static Colorblindness Instance { get; private set; }
+
+        [UnityEditor.Callbacks.DidReloadScripts]
+        private static void OnScriptsReloaded()
+        {
+#if !RENDERPIPELINE
+            Debug.LogError("There is no type of <b>SRP</b> included in this project.");
+#endif
+        }
 
         void Awake()
         {
@@ -98,15 +108,15 @@ namespace SOHNE.Accessibility.Colorblindness
         void InitChange()
         {
             if (volumes == null) return;
+#if UNITY_EDITOR
+            // TODO: Use a public event system to announce the change of the activated filter
+            Debug.Log($"Color changed to <b>{(ColorblindTypes)currentType} {currentType}</b>/{maxType}");
+#endif
 
             StartCoroutine(ApplyFilter());
 
             PlayerPrefs.SetInt("Accessibility.ColorblindType", currentType);
             currentType++;
-
-#if UNITY_EDITOR
-            Debug.Log($"Color changed to <b>{(ColorblindTypes)currentType} {currentType}</b>/{maxType}");
-#endif
         }
 
         IEnumerator ApplyFilter()
