@@ -1,6 +1,6 @@
 
 
-# SOHNE | Color blindness
+# SOHNE | Colorblindness
 [![Unity Version](https://img.shields.io/badge/Unity-2018.4%20LTS+-green.svg?logo=unity&style=for-the-badge&colorA=000000)](https://store.unity.com/download?ref=personal)
 
 [![Release](https://badgen.net/github/release/SOHNE/Colorblindness)][releases]  [![TODOs](https://badgen.net/https/api.tickgit.com/badgen/github.com/SOHNE/Colorblindness)](https://www.tickgit.com/browse?repo=github.com/SOHNE/Colorblindness) ![License](https://badgen.net/github/license/SOHNE/Colorblindness) ![Contributors](https://badgen.net/github/contributors/SOHNE/Colorblindness)
@@ -71,7 +71,7 @@ The above copyright notice and this permission notice shall be included in all c
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 -----
-![readme version](https://img.shields.io/badge/%2F~.-lightgrey.svg?style=flat-square&colorA=808080&colorB=808080)![readme version](https://img.shields.io/badge/09%2F12%2F18--lightgrey.svg?style=flat-square&colorA=000000&colorB=808080)
+![readme version](https://img.shields.io/badge/%2F~.-lightgrey.svg?style=flat-square&colorA=808080&colorB=808080)![readme version](https://img.shields.io/badge/05%2F107%2F20--lightgrey.svg?style=flat-square&colorA=000000&colorB=808080)
 
 **Live long and prosper \V/,**
 
