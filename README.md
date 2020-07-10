@@ -75,7 +75,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 [//]: # (External links)
 
-[colorblindness-gif]: <https://github.com/SOHNE/Colorblindness/dev/__misc__/demo.gif?raw=true>
+[colorblindness-gif]: <https://github.com/SOHNE/Colorblindness/blob/develop/__misc__/demo.gif?raw=true>
 [Channel Mixer]: <https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@7.2/manual/Post-Processing-Channel-Mixer.html>
 [Color Blindness Simulation]: <https://web.archive.org/web/20081014161121/http:/www.colorjack.com/labs/colormatrix/>
 [Scriptable Render Pipeline]: <https://docs.unity3d.com/Manual/ScriptableRenderPipeline.html>
