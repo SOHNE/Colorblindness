@@ -3,13 +3,13 @@
 
 [![Release](https://badgen.net/github/release/SOHNE/Colorblindness)][releases]  [![TODOs](https://badgen.net/https/api.tickgit.com/badgen/github.com/SOHNE/Colorblindness)](https://www.tickgit.com/browse?repo=github.com/SOHNE/Colorblindness) ![License](https://badgen.net/github/license/SOHNE/Colorblindness) ![Contributors](https://badgen.net/github/contributors/SOHNE/Colorblindness)
 
-![Colorblindness demonstration][colorblindness-gif]
-
 Using the [Channel Mixer] *Override*, includes eight color blindness profiles, based on this [Color Blindness Simulation].
 
 Currently, it only works with the following [Scriptable Render Pipeline]:
   - Universal RP (**URP**) / Lightweight RP (**LWRP**)
   - High Definition RP (**HDRP**)
+
+![Colorblindness demonstration][colorblindness-gif]
 
 ---
 
