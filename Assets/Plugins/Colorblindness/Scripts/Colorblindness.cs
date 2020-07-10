@@ -41,21 +41,27 @@ namespace SOHNE.Accessibility.Colorblindness
             }
         }
 
+        public static event System.Action<ColorblindTypes> OnChangingType;
+
         void SearchVolumes() => volumes = GameObject.FindObjectsOfType<Volume>();
 
-        #region Enable/Disable
-        private void OnEnable() => SceneManager.sceneLoaded += OnSceneLoaded;
-        #endregion
+        private void OnEnable()
+        {
+            SceneManager.sceneLoaded += OnSceneLoaded;
+#if UNITY_EDITOR
+            OnChangingType += (type) =>
+            {
+                Debug.Log($"Color changed to <b>{type} {(int)type}</b>/{maxType}");
+            };
+#endif
+        }
 
         public static Colorblindness Instance { get; private set; }
 
+#if !RENDERPIPELINE && UNITY_EDITOR
         [UnityEditor.Callbacks.DidReloadScripts]
-        private static void OnScriptsReloaded()
-        {
-#if !RENDERPIPELINE
-            Debug.LogError("There is no type of <b>SRP</b> included in this project.");
+        private static void OnScriptsReloaded() => Debug.LogError("There is no type of <b>SRP</b> included in this project.");
 #endif
-        }
 
         void Awake()
         {
@@ -73,24 +79,23 @@ namespace SOHNE.Accessibility.Colorblindness
             maxType = (int) System.Enum.GetValues(typeof(ColorblindTypes)).Cast<ColorblindTypes>().Last();
         }
 
-        void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-        {
-            SearchVolumes();
-
-            if (volumes == null || volumes.Length <= 0) return;
-
-            Change(-1);
-        }
-
-        void Start()
+        private void Start()
         {
             if (PlayerPrefs.HasKey("Accessibility.ColorblindType"))
                 currentType = PlayerPrefs.GetInt("Accessibility.ColorblindType");
             else
                 PlayerPrefs.SetInt("Accessibility.ColorblindType", 0);
 
+            DoLoad();
+        }
+
+        void OnSceneLoaded(Scene scene, LoadSceneMode _)
+        {
             SearchVolumes();
-            StartCoroutine(ApplyFilter());
+
+            if (volumes == null || volumes.Length <= 0) return;
+
+            DoLoad();
         }
 
         void Update()
@@ -102,49 +107,54 @@ namespace SOHNE.Accessibility.Colorblindness
         {
             filterIndex = filterIndex <= -1 ? PlayerPrefs.GetInt("Accessibility.ColorblindType") : filterIndex;
             currentType = Mathf.Clamp(filterIndex, 0, maxType);
-            StartCoroutine(ApplyFilter());
+            DoLoad();
+        }
+
+        public void Change(ColorblindTypes type)
+        {
+            currentType = (int) type;
+            DoLoad();
         }
 
         void InitChange()
         {
             if (volumes == null) return;
-#if UNITY_EDITOR
-            // TODO: Use a public event system to announce the change of the activated filter
-            Debug.Log($"Color changed to <b>{(ColorblindTypes)currentType} {currentType}</b>/{maxType}");
-#endif
 
-            StartCoroutine(ApplyFilter());
+            OnChangingType?.Invoke((ColorblindTypes) currentType);
 
-            PlayerPrefs.SetInt("Accessibility.ColorblindType", currentType);
-            currentType++;
+            // apply filter
+            DoLoad();
+
+            PlayerPrefs.SetInt("Accessibility.ColorblindType", currentType++);
         }
 
-        IEnumerator ApplyFilter()
+        void DoLoad()
         {
             ResourceRequest loadRequest = Resources.LoadAsync<VolumeProfile>($"Colorblind/{(ColorblindTypes)currentType}");
-
-            do yield return null; while (!loadRequest.isDone);
-
-            var filter = loadRequest.asset as VolumeProfile;
-
-            if (filter == null)
+            loadRequest.completed += (_) =>
             {
-                Debug.LogError("An error has occured! Please, report");
-                yield break;
-            }
+                var filter = loadRequest.asset as VolumeProfile;
 
-            if (lastFilter != null)
-            {
-                foreach (var volume in volumes)
+                if (filter == null)
                 {
-                    volume.profile.components.Remove(lastFilter);
-
-                    foreach (var component in filter.components)
-                        volume.profile.components.Add(component);
+                    Debug.LogError("An error has occured! Please, report");
+                    return;
                 }
-            }
 
-            lastFilter = filter.components[0];
+                if (lastFilter != null)
+                {
+                    foreach (var volume in volumes)
+                    {
+                        volume.profile.components.Remove(lastFilter);
+
+                        foreach (var component in filter.components)
+                            volume.profile.components.Add(component);
+                    }
+                }
+
+                lastFilter = filter.components[0];
+            };
+
         }
     }
 }
